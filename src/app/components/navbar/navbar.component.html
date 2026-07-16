@@ -1,8 +1,9 @@
 <nav class="navbar">
   <div class="navbar__left">
     <img src="/assets/icons/code-logo.svg" alt="Logo" class="navbar__logo" />
-    <span class="navbar__username">krzszk</span>
+    <span class="navbar__username">krzszk96</span>
   </div>
+
   <div class="navbar__right">
     <div class="navbar__tabs">
       <a class="navbar__tab" routerLink="/" routerLinkActive="navbar__tab--active" [routerLinkActiveOptions]="{ exact: true }">
@@ -18,5 +19,26 @@
         Projects
       </a>
     </div>
+
+    <button class="navbar__burger" (click)="toggleMenu()">
+      <img [src]="menuOpen() ? '/assets/icons/close.svg' : '/assets/icons/menu.svg'" alt="Menu" />
+    </button>
   </div>
 </nav>
+
+@if (menuOpen()) {
+  <div class="navbar__mobile-menu">
+    <a class="navbar__mobile-link" routerLink="/" routerLinkActive="navbar__mobile-link--active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">
+      <img src="/assets/icons/overview.svg" alt="" class="navbar__mobile-icon" />
+      Overview
+    </a>
+    <a class="navbar__mobile-link" routerLink="/experience" routerLinkActive="navbar__mobile-link--active" (click)="closeMenu()">
+      <img src="/assets/icons/briefcase.svg" alt="" class="navbar__mobile-icon" />
+      Experience
+    </a>
+    <a class="navbar__mobile-link" routerLink="/projects" routerLinkActive="navbar__mobile-link--active" (click)="closeMenu()">
+      <img src="/assets/icons/repo.svg" alt="" class="navbar__mobile-icon" />
+      Projects
+    </a>
+  </div>
+}

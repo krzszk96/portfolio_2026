@@ -11,7 +11,7 @@
   z-index: 100;
 
   @include mobile {
-    padding: $spacing-md $spacing-base;
+    padding: $spacing-sm $spacing-base;
   }
 
   &__left {
@@ -70,5 +70,89 @@
   &__tab-icon {
     width: 16px;
     height: 16px;
+  }
+
+  &__burger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: $spacing-sm;
+    border-radius: $border-radius-sm;
+    transition: background-color $transition-fast;
+
+    &:hover {
+      background-color: $color-bg-tertiary;
+    }
+
+    @include mobile {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__mobile-menu {
+    position: fixed;
+    top: 49px;
+    left: 0;
+    right: 0;
+    background-color: $color-bg-secondary;
+    border-bottom: 1px solid $color-border-default;
+    z-index: 99;
+    padding: $spacing-sm 0;
+    display: none;
+    animation: slideDown 0.2s ease-out;
+
+    @include mobile {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__mobile-link {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    padding: $spacing-md $spacing-xl;
+    color: $color-text-primary;
+    text-decoration: none;
+    font-size: $font-size-base;
+    transition: background-color $transition-fast;
+    border-left: 3px solid transparent;
+
+    &:hover {
+      background-color: $color-bg-tertiary;
+    }
+
+    &:active {
+      background-color: $color-border-default;
+    }
+
+    &--active {
+      border-left-color: $color-text-accent;
+      background-color: $color-bg-tertiary;
+    }
+  }
+
+  &__mobile-icon {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

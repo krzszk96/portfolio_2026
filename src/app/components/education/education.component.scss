@@ -30,10 +30,6 @@
     display: flex;
     align-items: flex-start;
     gap: $spacing-base;
-
-    @include mobile {
-      flex-wrap: wrap;
-    }
   }
 
   &__icon {
@@ -51,8 +47,6 @@
   }
 
   &__info {
-    flex: 1;
-
     h4 {
       font-size: $font-size-base;
       font-weight: $font-weight-semibold;
@@ -69,25 +63,5 @@
   &__date {
     font-size: $font-size-xs;
     color: $color-text-muted;
-  }
-
-  &__status {
-    font-size: $font-size-xs;
-    padding: 2px $spacing-sm;
-    border-radius: $border-radius-badge;
-    white-space: nowrap;
-    align-self: flex-start;
-
-    &--done {
-      background-color: rgba(63, 185, 80, 0.1);
-      color: #3fb950;
-      border: 1px solid rgba(63, 185, 80, 0.3);
-    }
-
-    &--progress {
-      background-color: rgba(88, 166, 255, 0.1);
-      color: $color-accent-blue;
-      border: 1px solid rgba(88, 166, 255, 0.3);
-    }
   }
 }

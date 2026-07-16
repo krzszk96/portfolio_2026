@@ -2,7 +2,7 @@
   <app-navbar />
 
   <div class="layout__content">
-    <app-sidebar />
+    <app-sidebar [class.layout__sidebar--hidden]="!isOverview()" />
 
     <main class="layout__main">
       <router-outlet />

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs';
 import { Navbar } from './components/navbar/navbar.component';
@@ -12,11 +12,15 @@ import { Sidebar } from './components/sidebar/sidebar.component';
 })
 export class App {
   private router = inject(Router);
+  isOverview = signal(true);
 
   constructor() {
     this.router.events
       .pipe(filter(e => e instanceof NavigationEnd))
-      .subscribe(() => {
+      .subscribe((e) => {
+        const url = (e as NavigationEnd).urlAfterRedirects;
+        this.isOverview.set(url === '/' || url === '');
+
         const fragment = this.router.routerState.snapshot.root.fragment;
         if (fragment) {
           setTimeout(() => {
