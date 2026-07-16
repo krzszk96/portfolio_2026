@@ -1,0 +1,102 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}
+
+.page-header {
+  h1 {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-semibold;
+    color: $color-text-primary;
+    margin-bottom: $spacing-sm;
+  }
+
+  p {
+    font-size: $font-size-base;
+    color: $color-text-secondary;
+  }
+}
+
+.project-detail {
+  @include section-container;
+}
+
+.project-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: $spacing-base;
+
+  @include mobile {
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+}
+
+.project-title {
+  font-size: 18px;
+  font-weight: $font-weight-semibold;
+  color: $color-text-link;
+}
+
+.project-subtitle {
+  font-size: $font-size-base;
+  color: $color-text-secondary;
+  margin-top: $spacing-xs;
+}
+
+.project-badge {
+  @include badge;
+  white-space: nowrap;
+}
+
+.project-description {
+  font-size: $font-size-base;
+  color: $color-text-primary;
+  line-height: 1.6;
+  margin-bottom: $spacing-base;
+}
+
+.project-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+
+  li {
+    position: relative;
+    padding-left: $spacing-lg;
+    font-size: $font-size-base;
+    color: $color-text-secondary;
+    line-height: 1.6;
+
+    &::before {
+      content: '▸';
+      position: absolute;
+      left: $spacing-sm;
+      color: $color-accent-blue;
+    }
+  }
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+  margin-top: $spacing-base;
+  padding-top: $spacing-base;
+  border-top: 1px solid $color-border-default;
+}
+
+.tech-tag {
+  font-size: $font-size-xs;
+  padding: 2px $spacing-sm;
+  border-radius: $border-radius-pill;
+  background-color: $color-bg-tertiary;
+  color: $color-text-primary;
+  border: 1px solid $color-border-default;
+}

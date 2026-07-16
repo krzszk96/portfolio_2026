@@ -1,0 +1,32 @@
+@use '../styles/variables' as *;
+@use '../styles/mixins' as *;
+
+:host {
+  display: block;
+  min-height: 100vh;
+  background-color: $color-bg-primary;
+}
+
+.layout {
+  min-height: 100vh;
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: $sidebar-width 1fr;
+  gap: $spacing-xl;
+  max-width: $max-content-width;
+  margin: 0 auto;
+  padding: $spacing-xl $spacing-2xl;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    padding: $spacing-base;
+  }
+}
+
+.content-area {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}

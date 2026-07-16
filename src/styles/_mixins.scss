@@ -1,0 +1,71 @@
+@use 'variables' as *;
+
+// ===== RESPONSIVE =====
+@mixin mobile {
+  @media (max-width: $breakpoint-mobile) {
+    @content;
+  }
+}
+
+// ===== CARD STYLES =====
+@mixin card($bg: $color-bg-secondary) {
+  padding: $spacing-base;
+  border: 1px solid $color-border-default;
+  border-radius: $border-radius-sm;
+  background-color: $bg;
+  transition: border-color $transition-fast;
+
+  &:hover {
+    border-color: $color-border-hover;
+  }
+}
+
+// ===== SECTION CONTAINER =====
+@mixin section-container {
+  border: 1px solid $color-border-default;
+  border-radius: $border-radius-sm;
+  padding: $spacing-xl;
+  background-color: $color-bg-primary;
+}
+
+// ===== BADGE =====
+@mixin badge {
+  font-size: $font-size-xs;
+  padding: 2px $spacing-sm;
+  border-radius: $border-radius-badge;
+  background-color: $color-bg-tertiary;
+  color: $color-text-secondary;
+  border: 1px solid $color-border-default;
+}
+
+// ===== BUTTON =====
+@mixin button-secondary {
+  width: 100%;
+  padding: 5px $spacing-base;
+  font-size: $font-size-base;
+  font-weight: $font-weight-medium;
+  color: $color-text-primary;
+  background-color: $color-bg-tertiary;
+  border: 1px solid $color-border-muted;
+  border-radius: $border-radius-sm;
+  cursor: pointer;
+  transition: background-color $transition-fast, border-color $transition-fast;
+
+  &:hover {
+    background-color: $color-border-default;
+    border-color: $color-text-secondary;
+  }
+}
+
+// ===== FLEX HELPERS =====
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
