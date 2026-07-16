@@ -47,6 +47,10 @@
     align-items: center;
     gap: $spacing-sm;
     margin-bottom: $spacing-sm;
+
+    app-status-badge {
+      margin-left: auto;
+    }
   }
 
   &__card-icon {
@@ -59,15 +63,6 @@
     font-size: $font-size-base;
     font-weight: $font-weight-semibold;
     color: $color-text-link;
-  }
-
-  &__card-badge {
-    font-size: $font-size-xs;
-    padding: 1px $spacing-sm;
-    border-radius: $border-radius-badge;
-    border: 1px solid $color-border-default;
-    color: $color-text-secondary;
-    margin-left: auto;
   }
 
   &__card-description {

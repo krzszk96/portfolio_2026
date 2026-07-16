@@ -1,7 +1,7 @@
 @use '../../../styles/variables' as *;
 @use '../../../styles/mixins' as *;
 
-.certificates {
+.education {
   @include section-container;
 
   &__header {
@@ -13,10 +13,6 @@
     font-size: $font-size-md;
     font-weight: $font-weight-semibold;
     color: $color-text-primary;
-  }
-
-  &__badge {
-    @include badge;
   }
 
   &__grid {

@@ -28,16 +28,6 @@
   background-color: $color-bg-primary;
 }
 
-// ===== BADGE =====
-@mixin badge {
-  font-size: $font-size-xs;
-  padding: 2px $spacing-sm;
-  border-radius: $border-radius-badge;
-  background-color: $color-bg-tertiary;
-  color: $color-text-secondary;
-  border: 1px solid $color-border-default;
-}
-
 // ===== BUTTON =====
 @mixin button-secondary {
   width: 100%;

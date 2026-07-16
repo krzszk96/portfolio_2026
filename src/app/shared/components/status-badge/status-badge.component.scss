@@ -1,0 +1,24 @@
+@use '../../../../styles/variables' as *;
+
+.status-badge {
+  display: inline-block;
+  font-size: $font-size-xs;
+  padding: 2px 8px;
+  border-radius: $border-radius-badge;
+  white-space: nowrap;
+  border: 1px solid $color-border-default;
+  background-color: $color-bg-tertiary;
+  color: $color-text-secondary;
+
+  &--done {
+    background-color: rgba(63, 185, 80, 0.1);
+    color: #3fb950;
+    border-color: rgba(63, 185, 80, 0.3);
+  }
+
+  &--progress {
+    background-color: rgba(88, 166, 255, 0.1);
+    color: $color-accent-blue;
+    border-color: rgba(88, 166, 255, 0.3);
+  }
+}

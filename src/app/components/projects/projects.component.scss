@@ -65,6 +65,10 @@
     align-items: center;
     gap: $spacing-sm;
     margin-bottom: $spacing-sm;
+
+    app-status-badge {
+      margin-left: auto;
+    }
   }
 
   &__card-icon {
@@ -80,27 +84,6 @@
 
     &:hover {
       text-decoration: underline;
-    }
-  }
-
-  &__card-badge {
-    font-size: $font-size-xs;
-    padding: 1px $spacing-sm;
-    border-radius: $border-radius-badge;
-    border: 1px solid $color-border-default;
-    color: $color-text-secondary;
-    margin-left: auto;
-
-    &--finished {
-      background-color: rgba(63, 185, 80, 0.1);
-      color: #3fb950;
-      border-color: rgba(63, 185, 80, 0.3);
-    }
-
-    &--active {
-      background-color: rgba(88, 166, 255, 0.1);
-      color: $color-accent-blue;
-      border-color: rgba(88, 166, 255, 0.3);
     }
   }
 
