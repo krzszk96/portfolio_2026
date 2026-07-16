@@ -1,67 +1,67 @@
 @use '../../../styles/variables' as *;
 @use '../../../styles/mixins' as *;
 
-.section {
+.certificates {
   @include section-container;
-}
 
-.section-header {
-  @include flex-between;
-  margin-bottom: $spacing-base;
+  &__header {
+    @include flex-between;
+    margin-bottom: $spacing-base;
+  }
 
-  h2 {
+  &__title {
     font-size: $font-size-md;
     font-weight: $font-weight-semibold;
     color: $color-text-primary;
   }
-}
 
-.badge {
-  @include badge;
-}
-
-.certificates-grid {
-  display: flex;
-  flex-direction: column;
-  gap: $spacing-md;
-}
-
-.certificate-card {
-  @include card;
-  display: flex;
-  align-items: flex-start;
-  gap: $spacing-base;
-}
-
-.certificate-icon {
-  flex-shrink: 0;
-  width: 40px;
-  height: 40px;
-  @include flex-center;
-  background-color: $color-accent-blue-bg;
-  border-radius: $border-radius-sm;
-
-  img {
-    width: 24px;
-    height: 24px;
-  }
-}
-
-.certificate-info {
-  h4 {
-    font-size: $font-size-base;
-    font-weight: $font-weight-semibold;
-    color: $color-text-primary;
-    margin-bottom: 2px;
+  &__badge {
+    @include badge;
   }
 
-  p {
-    font-size: $font-size-sm;
-    color: $color-text-secondary;
+  &__grid {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
   }
-}
 
-.certificate-date {
-  font-size: $font-size-xs;
-  color: $color-text-muted;
+  &__card {
+    @include card;
+    display: flex;
+    align-items: flex-start;
+    gap: $spacing-base;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    @include flex-center;
+    background-color: $color-accent-blue-bg;
+    border-radius: $border-radius-sm;
+
+    img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &__info {
+    h4 {
+      font-size: $font-size-base;
+      font-weight: $font-weight-semibold;
+      color: $color-text-primary;
+      margin-bottom: 2px;
+    }
+
+    p {
+      font-size: $font-size-sm;
+      color: $color-text-secondary;
+    }
+  }
+
+  &__date {
+    font-size: $font-size-xs;
+    color: $color-text-muted;
+  }
 }

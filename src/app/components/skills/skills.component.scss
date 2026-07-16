@@ -1,68 +1,63 @@
 @use '../../../styles/variables' as *;
 @use '../../../styles/mixins' as *;
 
-.section {
+.skills {
   @include section-container;
-}
 
-.section-header {
-  @include flex-between;
-  margin-bottom: $spacing-base;
+  &__header {
+    @include flex-between;
+    margin-bottom: $spacing-base;
+  }
 
-  h2 {
+  &__title {
     font-size: $font-size-md;
     font-weight: $font-weight-semibold;
     color: $color-text-primary;
   }
-}
 
-.skills-container {
-  display: flex;
-  flex-direction: column;
-  gap: $spacing-lg;
-}
-
-.skill-category-title {
-  font-size: $font-size-sm;
-  font-weight: $font-weight-semibold;
-  color: $color-text-secondary;
-  margin-bottom: 10px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.skill-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: $spacing-sm;
-}
-
-.skill-tag {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: $spacing-xs $spacing-md;
-  font-size: $font-size-sm;
-  color: $color-text-primary;
-  background-color: $color-bg-tertiary;
-  border: 1px solid $color-border-default;
-  border-radius: $border-radius-pill;
-  transition: background-color $transition-fast, border-color $transition-fast;
-
-  &:hover {
-    background-color: $color-border-default;
-    border-color: $color-border-hover;
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
   }
 
-  .lang-dot {
+  &__category-title {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    color: $color-text-secondary;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-sm;
+  }
+
+  &__tag {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: $spacing-xs $spacing-md;
+    font-size: $font-size-sm;
+    color: $color-text-primary;
+    background-color: $color-bg-tertiary;
+    border: 1px solid $color-border-default;
+    border-radius: $border-radius-pill;
+    transition: background-color $transition-fast, border-color $transition-fast;
+
+    &:hover {
+      background-color: $color-border-default;
+      border-color: $color-border-hover;
+    }
+  }
+
+  &__dot {
     width: 8px;
     height: 8px;
+    border-radius: 50%;
+    display: inline-block;
   }
-}
-
-.lang-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  display: inline-block;
 }

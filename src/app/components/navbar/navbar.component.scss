@@ -1,7 +1,7 @@
 @use '../../../styles/variables' as *;
 @use '../../../styles/mixins' as *;
 
-.top-nav {
+.navbar {
   @include flex-between;
   padding: $spacing-base $spacing-2xl;
   background-color: $color-bg-secondary;
@@ -13,62 +13,62 @@
   @include mobile {
     padding: $spacing-md $spacing-base;
   }
-}
 
-.nav-left {
-  display: flex;
-  align-items: center;
-  gap: $spacing-md;
-}
-
-.nav-logo {
-  width: 32px;
-  height: 32px;
-}
-
-.nav-username {
-  font-size: $font-size-md;
-  font-weight: $font-weight-semibold;
-  color: $color-text-primary;
-}
-
-.nav-right {
-  display: flex;
-  align-items: center;
-}
-
-.nav-tabs {
-  display: flex;
-  gap: $spacing-xs;
-
-  @include mobile {
-    display: none;
-  }
-}
-
-.nav-tab {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: $spacing-sm $spacing-base;
-  color: $color-text-primary;
-  text-decoration: none;
-  border-radius: $border-radius-sm;
-  font-size: $font-size-base;
-  cursor: pointer;
-  transition: background-color $transition-fast;
-
-  &:hover {
-    background-color: $color-bg-tertiary;
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
   }
 
-  &.active {
-    background-color: $color-bg-tertiary;
-    border-bottom: 2px solid $color-text-accent;
+  &__logo {
+    width: 32px;
+    height: 32px;
   }
-}
 
-.nav-icon {
-  width: 16px;
-  height: 16px;
+  &__username {
+    font-size: $font-size-md;
+    font-weight: $font-weight-semibold;
+    color: $color-text-primary;
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+  }
+
+  &__tabs {
+    display: flex;
+    gap: $spacing-xs;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__tab {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: $spacing-sm $spacing-base;
+    color: $color-text-primary;
+    text-decoration: none;
+    border-radius: $border-radius-sm;
+    font-size: $font-size-base;
+    cursor: pointer;
+    transition: background-color $transition-fast;
+
+    &:hover {
+      background-color: $color-bg-tertiary;
+    }
+
+    &--active {
+      background-color: $color-bg-tertiary;
+      border-bottom: 2px solid $color-text-accent;
+    }
+  }
+
+  &__tab-icon {
+    width: 16px;
+    height: 16px;
+  }
 }

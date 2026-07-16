@@ -1,55 +1,144 @@
-<section class="section">
-  <div class="section-header">
-    <h2>Projects</h2>
-    <a href="#" class="customize-link">Pinned</a>
+<section class="projects">
+  <div class="projects__header">
+    <h2 class="projects__title">Projects</h2>
+    <a routerLink="/projects" class="projects__link">View all →</a>
   </div>
-  <div class="card-grid">
-    <div class="repo-card pinned">
-      <div class="repo-card-header">
-        <img src="/assets/icons/repo.svg" alt="" class="card-icon" />
-        <h3 class="repo-name project-link">LOT Shop&More</h3>
-        <span class="repo-visibility">E-commerce</span>
+
+  <h3 class="projects__subsection-title">Work</h3>
+  <div class="projects__grid">
+    <a class="projects__card projects__card--pinned" routerLink="/projects" fragment="lot-shop-more">
+      <div class="projects__card-header">
+        <img src="/assets/icons/repo.svg" alt="" class="projects__card-icon" />
+        <h3 class="projects__card-title">LOT Shop&More</h3>
+        <span class="projects__card-badge projects__card-badge--finished">Finished</span>
       </div>
-      <p class="repo-description">
-        High-performance e-commerce platform for LOT Polish Airlines. Built with
-        Angular 20, RxJS, NgRx, integrated with Adobe Experience Manager and
-        Adobe Commerce (Magento). Monorepo architecture with Nx, REST APIs, and
-        full WCAG accessibility compliance.
+      <p class="projects__card-description">
+        E-commerce platform for LOT Polish Airlines. Angular 20, Nx monorepo,
+        AEM, Adobe Commerce. Full WCAG compliance.
       </p>
-      <div class="repo-meta">
-        <span class="language-indicator">
-          <span class="lang-dot" style="background-color: #3178c6;"></span>
+      <div class="projects__card-meta">
+        <span class="projects__lang">
+          <span class="projects__lang-dot" style="background-color: #3178c6;"></span>
           TypeScript
         </span>
-        <span class="stat">
-          <img src="/assets/icons/star.svg" alt="" class="stat-icon" />
+        <span class="projects__stat">
+          <img src="/assets/icons/star.svg" alt="" class="projects__stat-icon" />
           Angular 20
         </span>
       </div>
-    </div>
+    </a>
 
-    <div class="repo-card pinned">
-      <div class="repo-card-header">
-        <img src="/assets/icons/repo.svg" alt="" class="card-icon" />
-        <h3 class="repo-name project-link">Serverless OMS</h3>
-        <span class="repo-visibility">Cloud-Native</span>
+    <a class="projects__card projects__card--pinned" routerLink="/projects" fragment="lot-booking-engine">
+      <div class="projects__card-header">
+        <img src="/assets/icons/repo.svg" alt="" class="projects__card-icon" />
+        <h3 class="projects__card-title">LOT.com Booking Engine</h3>
+        <span class="projects__card-badge projects__card-badge--active">In Progress</span>
       </div>
-      <p class="repo-description">
-        Serverless E-commerce Order Management System built with Angular 19,
-        PrimeNG, AWS Lambda, DynamoDB, Cognito, and Amplify. Features real-time
-        data consumption, logistics state tracking, secure RBAC, and RESTful API
-        contracts with Webhook integrations.
+      <p class="projects__card-description">
+        Next-gen flight booking system. Multi-step forms, reactive state,
+        i18n, performance-optimized for large result sets.
       </p>
-      <div class="repo-meta">
-        <span class="language-indicator">
-          <span class="lang-dot" style="background-color: #FF9900;"></span>
+      <div class="projects__card-meta">
+        <span class="projects__lang">
+          <span class="projects__lang-dot" style="background-color: #dd0031;"></span>
+          Angular
+        </span>
+        <span class="projects__stat">
+          <img src="/assets/icons/star.svg" alt="" class="projects__stat-icon" />
+          Angular 20
+        </span>
+      </div>
+    </a>
+
+    <a class="projects__card projects__card--pinned" routerLink="/projects" fragment="serverless-oms">
+      <div class="projects__card-header">
+        <img src="/assets/icons/repo.svg" alt="" class="projects__card-icon" />
+        <h3 class="projects__card-title">Serverless OMS</h3>
+        <span class="projects__card-badge projects__card-badge--active">In Progress</span>
+      </div>
+      <p class="projects__card-description">
+        Cloud-native Order Management System. Angular 19, PrimeNG, AWS Lambda,
+        DynamoDB, Cognito. Real-time logistics tracking.
+      </p>
+      <div class="projects__card-meta">
+        <span class="projects__lang">
+          <span class="projects__lang-dot" style="background-color: #FF9900;"></span>
           AWS
         </span>
-        <span class="stat">
-          <img src="/assets/icons/star.svg" alt="" class="stat-icon" />
+        <span class="projects__stat">
+          <img src="/assets/icons/star.svg" alt="" class="projects__stat-icon" />
           Angular 19
         </span>
       </div>
-    </div>
+    </a>
+  </div>
+
+  <h3 class="projects__subsection-title">Personal</h3>
+  <div class="projects__grid">
+    <a class="projects__card projects__card--personal" routerLink="/projects" fragment="portfolio-2026">
+      <div class="projects__card-header">
+        <img src="/assets/icons/repo.svg" alt="" class="projects__card-icon" />
+        <h3 class="projects__card-title">Portfolio 2026</h3>
+        <span class="projects__card-badge projects__card-badge--active">In Progress</span>
+      </div>
+      <p class="projects__card-description">
+        This website — GitHub-inspired developer portfolio built with Angular,
+        dark theme, modular components, and responsive layout.
+      </p>
+      <div class="projects__card-meta">
+        <span class="projects__lang">
+          <span class="projects__lang-dot" style="background-color: #3178c6;"></span>
+          TypeScript
+        </span>
+        <span class="projects__stat">
+          <img src="/assets/icons/star.svg" alt="" class="projects__stat-icon" />
+          Angular
+        </span>
+      </div>
+    </a>
+
+    <a class="projects__card projects__card--personal" routerLink="/projects" fragment="canva-shop">
+      <div class="projects__card-header">
+        <img src="/assets/icons/repo.svg" alt="" class="projects__card-icon" />
+        <h3 class="projects__card-title">Canva Templates Shop</h3>
+        <span class="projects__card-badge projects__card-badge--active">In Progress</span>
+      </div>
+      <p class="projects__card-description">
+        Online store selling Canva templates. Angular 21, AWS serverless backend,
+        Stripe payment integration, automated digital delivery.
+      </p>
+      <div class="projects__card-meta">
+        <span class="projects__lang">
+          <span class="projects__lang-dot" style="background-color: #635bff;"></span>
+          Stripe
+        </span>
+        <span class="projects__stat">
+          <img src="/assets/icons/star.svg" alt="" class="projects__stat-icon" />
+          Angular 21
+        </span>
+      </div>
+    </a>
+
+    <a class="projects__card projects__card--personal" routerLink="/projects" fragment="job-hunting-stats">
+      <div class="projects__card-header">
+        <img src="/assets/icons/repo.svg" alt="" class="projects__card-icon" />
+        <h3 class="projects__card-title">Job Tracker</h3>
+        <span class="projects__card-badge projects__card-badge--active">In Progress</span>
+      </div>
+      <p class="projects__card-description">
+        SaaS tool for job seekers. Angular 21, AWS serverless, Stripe one-time
+        payment model.
+      </p>
+      <div class="projects__card-meta">
+        <span class="projects__lang">
+          <span class="projects__lang-dot" style="background-color: #635bff;"></span>
+          Stripe
+        </span>
+        <span class="projects__stat">
+          <img src="/assets/icons/star.svg" alt="" class="projects__stat-icon" />
+          Angular 21
+        </span>
+      </div>
+    </a>
   </div>
 </section>

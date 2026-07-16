@@ -1,29 +1,29 @@
 @use '../../../styles/variables' as *;
 @use '../../../styles/mixins' as *;
 
-.section {
+.about {
   @include section-container;
-}
 
-.section-header {
-  @include flex-between;
-  margin-bottom: $spacing-base;
+  &__header {
+    @include flex-between;
+    margin-bottom: $spacing-base;
+  }
 
-  h2 {
+  &__title {
     font-size: $font-size-md;
     font-weight: $font-weight-semibold;
     color: $color-text-primary;
   }
-}
 
-.about-card {
-  display: flex;
-  flex-direction: column;
-  gap: $spacing-md;
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
 
-  p {
-    font-size: $font-size-base;
-    color: $color-text-primary;
-    line-height: 1.6;
+    p {
+      font-size: $font-size-base;
+      color: $color-text-primary;
+      line-height: 1.6;
+    }
   }
 }

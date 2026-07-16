@@ -1,49 +1,48 @@
-<section class="section">
-  <div class="section-header">
-    <h2>Work Experience</h2>
-    <span class="badge">2 positions</span>
+<section class="experience">
+  <div class="experience__header">
+    <h2 class="experience__title">Work Experience</h2>
+    <a routerLink="/experience" class="experience__link">View details →</a>
   </div>
-  <div class="card-grid">
-    <div class="repo-card">
-      <div class="repo-card-header">
-        <img src="/assets/icons/briefcase.svg" alt="" class="card-icon" />
-        <h3 class="repo-name">Front-end Developer</h3>
-        <span class="repo-visibility">Full-time</span>
+  <div class="experience__grid">
+    <a class="experience__card" routerLink="/experience" fragment="lot-developer">
+      <div class="experience__card-header">
+        <img src="/assets/icons/briefcase.svg" alt="" class="experience__card-icon" />
+        <h3 class="experience__card-title">Front-end Developer</h3>
+        <span class="experience__card-badge">Full-time</span>
       </div>
-      <p class="repo-description">
-        Polskie Linie Lotnicze „LOT" S.A. — Developed high-performance front-end
-        modules for LOT Shop&More (e-commerce) and the next-gen booking engine
-        using Angular 20. Implemented Nx/Monorepo strategy, integrated AEM and
-        Adobe Commerce, optimized Core Web Vitals, and ensured WCAG compliance
-        across all device types.
+      <p class="experience__card-description">
+        Polskie Linie Lotnicze „LOT" S.A. — Building the next-generation booking
+        engine for lot.com with complex multi-step flows, reactive state management,
+        and i18n support. Previously delivered the LOT Shop&More e-commerce platform
+        with Nx monorepo, AEM/Adobe Commerce integration, and full WCAG compliance.
       </p>
-      <div class="repo-meta">
-        <span class="language-indicator">
-          <span class="lang-dot" style="background-color: #dd0031;"></span>
+      <div class="experience__card-meta">
+        <span class="experience__lang">
+          <span class="experience__lang-dot" style="background-color: #dd0031;"></span>
           Jul 2022 - Present
         </span>
       </div>
-    </div>
+    </a>
 
-    <div class="repo-card">
-      <div class="repo-card-header">
-        <img src="/assets/icons/briefcase.svg" alt="" class="card-icon" />
-        <h3 class="repo-name">Front-end Engineer</h3>
-        <span class="repo-visibility">Part-time</span>
+    <a class="experience__card" routerLink="/experience" fragment="lincoms-engineer">
+      <div class="experience__card-header">
+        <img src="/assets/icons/briefcase.svg" alt="" class="experience__card-icon" />
+        <h3 class="experience__card-title">Front-end Engineer</h3>
+        <span class="experience__card-badge">Part-time</span>
       </div>
-      <p class="repo-description">
+      <p class="experience__card-description">
         Lincoms SP. Z O.O. — Led development of a serverless e-commerce Order
         Management System dashboard using Angular 19 and PrimeNG. Built the UI to
         consume real-time data from AWS Lambda and DynamoDB. Defined RESTful API
         contracts and Webhook structures. Implemented secure identity management
         and RBAC using AWS Cognito.
       </p>
-      <div class="repo-meta">
-        <span class="language-indicator">
-          <span class="lang-dot" style="background-color: #FF9900;"></span>
+      <div class="experience__card-meta">
+        <span class="experience__lang">
+          <span class="experience__lang-dot" style="background-color: #FF9900;"></span>
           Nov 2023 - Present
         </span>
       </div>
-    </div>
+    </a>
   </div>
 </section>

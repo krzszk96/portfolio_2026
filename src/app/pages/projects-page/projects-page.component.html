@@ -1,24 +1,27 @@
-<div class="page-header">
+<div class="proj-page__header">
   <h1>Projects</h1>
-  <p>Key projects I've built and contributed to.</p>
+  <p>Work projects and personal side-projects I've built and contributed to.</p>
 </div>
 
-<div class="project-detail">
-  <div class="project-header">
-    <div>
-      <h2 class="project-title">LOT Shop&More</h2>
-      <p class="project-subtitle">E-commerce platform for LOT Polish Airlines</p>
-    </div>
-    <span class="project-badge">Production</span>
-  </div>
+<div class="proj-page__section-divider">
+  <h2 class="proj-page__section-title">Work Projects</h2>
+  <span class="proj-page__section-badge">Professional</span>
+</div>
 
-  <p class="project-description">
+<div class="proj-page__project" id="lot-shop-more">
+  <div class="proj-page__project-header">
+    <div>
+      <h2 class="proj-page__project-title">LOT Shop&More</h2>
+      <p class="proj-page__project-subtitle">E-commerce platform for LOT Polish Airlines</p>
+    </div>
+    <span class="proj-page__project-badge proj-page__project-badge--finished">Finished</span>
+  </div>
+  <p class="proj-page__project-description">
     A high-performance e-commerce platform serving millions of customers for LOT Polish Airlines.
     Built with a monorepo architecture using Nx, integrated with Adobe's ecosystem for personalized
     content delivery and commerce capabilities.
   </p>
-
-  <ul class="project-features">
+  <ul class="proj-page__project-features">
     <li>Angular 20 with modular architecture and lazy-loaded feature modules</li>
     <li>Nx monorepo for shared libraries and unified CI/CD pipelines</li>
     <li>Adobe Experience Manager integration for dynamic content</li>
@@ -28,36 +31,66 @@
     <li>Full WCAG 2.1 AA compliance across all device types</li>
     <li>BEM methodology for maintainable CSS architecture</li>
   </ul>
-
-  <div class="project-tech">
-    <span class="tech-tag">Angular 20</span>
-    <span class="tech-tag">TypeScript</span>
-    <span class="tech-tag">RxJS</span>
-    <span class="tech-tag">NgRx</span>
-    <span class="tech-tag">Nx</span>
-    <span class="tech-tag">AEM</span>
-    <span class="tech-tag">Magento</span>
-    <span class="tech-tag">REST APIs</span>
-    <span class="tech-tag">Jest</span>
-    <span class="tech-tag">WCAG</span>
+  <div class="proj-page__project-tech">
+    <span class="proj-page__tech-tag">Angular 20</span>
+    <span class="proj-page__tech-tag">TypeScript</span>
+    <span class="proj-page__tech-tag">RxJS</span>
+    <span class="proj-page__tech-tag">NgRx</span>
+    <span class="proj-page__tech-tag">Nx</span>
+    <span class="proj-page__tech-tag">AEM</span>
+    <span class="proj-page__tech-tag">Magento</span>
+    <span class="proj-page__tech-tag">REST APIs</span>
+    <span class="proj-page__tech-tag">Jest</span>
+    <span class="proj-page__tech-tag">WCAG</span>
   </div>
 </div>
 
-<div class="project-detail">
-  <div class="project-header">
+<div class="proj-page__project" id="lot-booking-engine">
+  <div class="proj-page__project-header">
     <div>
-      <h2 class="project-title">Serverless OMS</h2>
-      <p class="project-subtitle">Cloud-Native Order Management System</p>
+      <h2 class="proj-page__project-title">LOT.com Booking Engine</h2>
+      <p class="proj-page__project-subtitle">Next-generation flight booking system for LOT Polish Airlines</p>
     </div>
-    <span class="project-badge">Production</span>
+    <span class="proj-page__project-badge proj-page__project-badge--active">In Progress</span>
   </div>
+  <p class="proj-page__project-description">
+    A next-generation booking engine powering lot.com flight reservations. Focused on performance,
+    accessibility, and seamless user experience for multi-step booking flows across all device types.
+  </p>
+  <ul class="proj-page__project-features">
+    <li>Angular 20 with complex multi-step form architecture</li>
+    <li>Reactive state management for flight search, seat selection, and payment flows</li>
+    <li>Performance-optimized rendering for large flight result sets</li>
+    <li>Integrated with backend booking APIs and payment gateways</li>
+    <li>Internationalization (i18n) for multi-language support</li>
+    <li>WCAG 2.1 AA accessibility compliance</li>
+    <li>Monorepo shared with Shop&More for code reuse</li>
+  </ul>
+  <div class="proj-page__project-tech">
+    <span class="proj-page__tech-tag">Angular 20</span>
+    <span class="proj-page__tech-tag">TypeScript</span>
+    <span class="proj-page__tech-tag">RxJS</span>
+    <span class="proj-page__tech-tag">NgRx</span>
+    <span class="proj-page__tech-tag">Nx</span>
+    <span class="proj-page__tech-tag">REST APIs</span>
+    <span class="proj-page__tech-tag">i18n</span>
+    <span class="proj-page__tech-tag">WCAG</span>
+  </div>
+</div>
 
-  <p class="project-description">
+<div class="proj-page__project" id="serverless-oms">
+  <div class="proj-page__project-header">
+    <div>
+      <h2 class="proj-page__project-title">Serverless OMS</h2>
+      <p class="proj-page__project-subtitle">Cloud-Native Order Management System</p>
+    </div>
+    <span class="proj-page__project-badge proj-page__project-badge--active">In Progress</span>
+  </div>
+  <p class="proj-page__project-description">
     A serverless e-commerce Order Management System built entirely on AWS infrastructure.
     Features real-time order tracking, logistics state management, and secure multi-tenant access control.
   </p>
-
-  <ul class="project-features">
+  <ul class="proj-page__project-features">
     <li>Angular 19 dashboard with PrimeNG component library</li>
     <li>AWS Lambda for serverless compute with Python handlers</li>
     <li>DynamoDB for high-throughput NoSQL data storage</li>
@@ -68,16 +101,103 @@
     <li>Webhook integrations for third-party service notifications</li>
     <li>CloudFormation and Amplify for IaC deployments</li>
   </ul>
+  <div class="proj-page__project-tech">
+    <span class="proj-page__tech-tag">Angular 19</span>
+    <span class="proj-page__tech-tag">PrimeNG</span>
+    <span class="proj-page__tech-tag">TypeScript</span>
+    <span class="proj-page__tech-tag">Python</span>
+    <span class="proj-page__tech-tag">AWS Lambda</span>
+    <span class="proj-page__tech-tag">DynamoDB</span>
+    <span class="proj-page__tech-tag">Cognito</span>
+    <span class="proj-page__tech-tag">Amplify</span>
+    <span class="proj-page__tech-tag">CloudFormation</span>
+  </div>
+</div>
 
-  <div class="project-tech">
-    <span class="tech-tag">Angular 19</span>
-    <span class="tech-tag">PrimeNG</span>
-    <span class="tech-tag">TypeScript</span>
-    <span class="tech-tag">Python</span>
-    <span class="tech-tag">AWS Lambda</span>
-    <span class="tech-tag">DynamoDB</span>
-    <span class="tech-tag">Cognito</span>
-    <span class="tech-tag">Amplify</span>
-    <span class="tech-tag">CloudFormation</span>
+<div class="proj-page__section-divider">
+  <h2 class="proj-page__section-title">Personal Projects</h2>
+  <span class="proj-page__section-badge">Side-projects</span>
+</div>
+
+<div class="proj-page__project proj-page__project--personal" id="portfolio-2026">
+  <div class="proj-page__project-header">
+    <div>
+      <h2 class="proj-page__project-title">Portfolio 2026</h2>
+      <p class="proj-page__project-subtitle">This website — GitHub-inspired developer portfolio</p>
+    </div>
+    <span class="proj-page__project-badge proj-page__project-badge--active">In Progress</span>
+  </div>
+  <p class="proj-page__project-description">
+    A personal portfolio website inspired by GitHub's admin panel design. Built with Angular,
+    featuring a dark theme, modular component architecture, and responsive layout.
+  </p>
+  <ul class="proj-page__project-features">
+    <li>Angular standalone components with modular architecture</li>
+    <li>GitHub-inspired dark UI with custom SCSS variables and mixins</li>
+    <li>Responsive design with mobile-first approach</li>
+    <li>Multi-page routing with dedicated experience and project pages</li>
+  </ul>
+  <div class="proj-page__project-tech">
+    <span class="proj-page__tech-tag">Angular</span>
+    <span class="proj-page__tech-tag">TypeScript</span>
+    <span class="proj-page__tech-tag">SCSS</span>
+  </div>
+</div>
+
+<div class="proj-page__project proj-page__project--personal" id="canva-shop">
+  <div class="proj-page__project-header">
+    <div>
+      <h2 class="proj-page__project-title">Canva Templates Shop</h2>
+      <p class="proj-page__project-subtitle">Online store selling Canva templates with Stripe payments</p>
+    </div>
+    <span class="proj-page__project-badge proj-page__project-badge--active">In Progress</span>
+  </div>
+  <p class="proj-page__project-description">
+    An e-commerce platform for selling Canva design templates. Built with Angular 21 and powered by
+    AWS serverless infrastructure with Stripe payment integration for secure checkout flows.
+  </p>
+  <ul class="proj-page__project-features">
+    <li>Angular 21 frontend with responsive UI</li>
+    <li>Stripe integration for secure payment processing</li>
+    <li>AWS Lambda and DynamoDB for serverless backend</li>
+    <li>CloudFront + S3 for hosting and delivery</li>
+  </ul>
+  <div class="proj-page__project-tech">
+    <span class="proj-page__tech-tag">Angular 21</span>
+    <span class="proj-page__tech-tag">TypeScript</span>
+    <span class="proj-page__tech-tag">Stripe</span>
+    <span class="proj-page__tech-tag">AWS Lambda</span>
+    <span class="proj-page__tech-tag">DynamoDB</span>
+    <span class="proj-page__tech-tag">S3</span>
+    <span class="proj-page__tech-tag">CloudFront</span>
+  </div>
+</div>
+
+<div class="proj-page__project proj-page__project--personal" id="job-hunting-stats">
+  <div class="proj-page__project-header">
+    <div>
+      <h2 class="proj-page__project-title">Job Tracker</h2>
+      <p class="proj-page__project-subtitle">SaaS tool for job seekers — one-time payment model</p>
+    </div>
+    <span class="proj-page__project-badge proj-page__project-badge--active">In Progress</span>
+  </div>
+  <p class="proj-page__project-description">
+    A productivity SaaS tool for job seekers. One-time Stripe payment unlocks full access.
+    Built with Angular 21 and AWS serverless infrastructure.
+  </p>
+  <ul class="proj-page__project-features">
+    <li>Angular 21 frontend with responsive UI</li>
+    <li>Stripe one-time payment integration</li>
+    <li>AWS Lambda and DynamoDB for serverless backend</li>
+    <li>AWS Cognito for user authentication</li>
+    <li>CloudFront + S3 for hosting and delivery</li>
+  </ul>
+  <div class="proj-page__project-tech">
+    <span class="proj-page__tech-tag">Angular 21</span>
+    <span class="proj-page__tech-tag">TypeScript</span>
+    <span class="proj-page__tech-tag">Stripe</span>
+    <span class="proj-page__tech-tag">AWS Lambda</span>
+    <span class="proj-page__tech-tag">DynamoDB</span>
+    <span class="proj-page__tech-tag">Cognito</span>
   </div>
 </div>
