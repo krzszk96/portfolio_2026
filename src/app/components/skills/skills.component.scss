@@ -47,6 +47,7 @@
     border: 1px solid $color-border-default;
     border-radius: $border-radius-pill;
     transition: background-color $transition-fast, border-color $transition-fast;
+    user-select: none;
 
     &:hover {
       background-color: $color-border-default;

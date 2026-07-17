@@ -1,14 +1,20 @@
 @use '../../../styles/variables' as *;
 @use '../../../styles/mixins' as *;
 
-.navbar {
-  @include flex-between;
-  padding: $spacing-base $spacing-2xl;
+:host {
+  display: block;
   background-color: $color-bg-secondary;
   border-bottom: 1px solid $color-border-default;
   position: sticky;
   top: 0;
   z-index: 100;
+}
+
+.navbar {
+  @include flex-between;
+  max-width: $max-content-width;
+  margin: 0 auto;
+  padding: $spacing-base $spacing-2xl;
 
   @include mobile {
     padding: $spacing-sm $spacing-base;
