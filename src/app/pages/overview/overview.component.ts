@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { About } from '../../components/about/about.component';
 import { Experience } from '../../components/experience/experience.component';
 import { Projects } from '../../components/projects/projects.component';
@@ -11,6 +11,7 @@ import { GithubActivity } from '../../components/github-activity/github-activity
   selector: 'app-overview',
   imports: [About, Experience, Projects, Skills, Certificates, Education, GithubActivity],
   templateUrl: './overview.component.html',
-  styleUrl: './overview.component.scss'
+  styleUrl: './overview.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Overview {}

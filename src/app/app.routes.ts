@@ -1,11 +1,8 @@
 import { Routes } from '@angular/router';
-import { Overview } from './pages/overview/overview.component';
-import { ExperiencePage } from './pages/experience-page/experience-page.component';
-import { ProjectsPage } from './pages/projects-page/projects-page.component';
 
 export const routes: Routes = [
-  { path: '', component: Overview },
-  { path: 'experience', component: ExperiencePage },
-  { path: 'projects', component: ProjectsPage },
+  { path: '', loadComponent: () => import('./pages/overview/overview.component').then(m => m.Overview) },
+  { path: 'experience', loadComponent: () => import('./pages/experience-page/experience-page.component').then(m => m.ExperiencePage) },
+  { path: 'projects', loadComponent: () => import('./pages/projects-page/projects-page.component').then(m => m.ProjectsPage) },
   { path: '**', redirectTo: '' }
 ];

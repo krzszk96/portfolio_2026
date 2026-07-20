@@ -1,37 +1,32 @@
-import { Component, inject, signal } from '@angular/core';
-import { RouterOutlet, Router, NavigationEnd } from '@angular/router';
-import { filter } from 'rxjs';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
+import { RouterOutlet, Router } from '@angular/router';
+import { toSignal } from '@angular/core/rxjs-interop';
+import { map, filter } from 'rxjs';
+import { NavigationEnd } from '@angular/router';
 import { Navbar } from './components/navbar/navbar.component';
 import { Sidebar } from './components/sidebar/sidebar.component';
+import { ScrollService } from './shared/services/scroll.service';
 
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, Navbar, Sidebar],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class App {
   private router = inject(Router);
-  isOverview = signal(true);
+  private scrollService = inject(ScrollService);
+
+  isOverview = toSignal(
+    this.router.events.pipe(
+      filter((e): e is NavigationEnd => e instanceof NavigationEnd),
+      map(e => e.urlAfterRedirects === '/' || e.urlAfterRedirects === '')
+    ),
+    { initialValue: true }
+  );
 
   constructor() {
-    this.router.events
-      .pipe(filter(e => e instanceof NavigationEnd))
-      .subscribe((e) => {
-        const url = (e as NavigationEnd).urlAfterRedirects;
-        this.isOverview.set(url === '/' || url === '');
-
-        const fragment = this.router.routerState.snapshot.root.fragment;
-        if (fragment) {
-          setTimeout(() => {
-            const el = document.getElementById(fragment);
-            if (el) {
-              const navbarHeight = 80;
-              const top = el.getBoundingClientRect().top + window.scrollY - navbarHeight;
-              window.scrollTo({ top, behavior: 'smooth' });
-            }
-          }, 100);
-        }
-      });
+    this.scrollService.init();
   }
 }

@@ -1,9 +1,9 @@
-@if (disabled) {
+@if (disabled()) {
   <span class="web-link web-link--disabled" aria-disabled="true" title="Page building is in progress">
     <span class="web-link__dot web-link__dot--disabled"></span> Go to web
   </span>
 } @else {
-  <a class="web-link" [href]="href" target="_blank" rel="noopener noreferrer" [attr.aria-label]="'Go to web — opens in new tab'">
+  <a class="web-link" [href]="href()" target="_blank" rel="noopener noreferrer" [attr.aria-label]="'Go to web — opens in new tab'">
     <span class="web-link__dot"></span> Go to web
   </a>
 }

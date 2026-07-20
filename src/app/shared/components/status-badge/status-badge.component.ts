@@ -1,9 +1,10 @@
-import { Component, input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 
 @Component({
   selector: 'app-status-badge',
   templateUrl: './status-badge.component.html',
-  styleUrl: './status-badge.component.scss'
+  styleUrl: './status-badge.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class StatusBadge {
   label = input.required<string>();

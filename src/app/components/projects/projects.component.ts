@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { StatusBadge } from '../../shared/components/status-badge/status-badge.component';
 
@@ -6,6 +6,7 @@ import { StatusBadge } from '../../shared/components/status-badge/status-badge.c
   selector: 'app-projects',
   imports: [RouterLink, StatusBadge],
   templateUrl: './projects.component.html',
-  styleUrl: './projects.component.scss'
+  styleUrl: './projects.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Projects {}

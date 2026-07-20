@@ -1,11 +1,12 @@
-import { Component, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 
 @Component({
   selector: 'app-web-link',
   templateUrl: './web-link.component.html',
-  styleUrl: './web-link.component.scss'
+  styleUrl: './web-link.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class WebLink {
-  @Input() href = '';
-  @Input() disabled = false;
+  href = input('');
+  disabled = input(false);
 }

@@ -1,59 +1,79 @@
-# Portfolio2026
+# Portfolio 2026
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.3.
+A GitHub-inspired developer portfolio built with Angular 21. Dark theme, modular component architecture, responsive layout, and WCAG 2.1 AA compliance.
 
-## Development server
+## Tech Stack
 
-To start a local development server, run:
+- **Framework:** Angular 21 (standalone components, signal-based reactivity)
+- **Styling:** SCSS with BEM methodology, CSS custom properties via SCSS variables
+- **Build:** Vite via `@angular/build`, production budgets configured
+- **Testing:** Vitest
+- **Deployment:** Static build, no SSR required
 
-```bash
-ng serve
+## Architecture
+
+```
+src/
+├── app/
+│   ├── components/       # Presentational, reusable UI components
+│   ├── pages/            # Route-level page components (lazy loaded)
+│   ├── shared/
+│   │   ├── components/   # Shared UI (StatusBadge, WebLink)
+│   │   └── services/     # Data services (GithubService)
+│   ├── app.config.ts     # Providers (router, http)
+│   ├── app.routes.ts     # Lazy-loaded route definitions
+│   └── app.ts            # Root component
+├── environments/         # Environment-specific config
+├── styles/               # Global SCSS variables & mixins
+└── index.html
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### Key Patterns
 
-## Code scaffolding
+- **Lazy-loaded routes** via `loadComponent()` for code splitting
+- **Signal inputs** (`input()`) and `signal()` for reactive state
+- **OnPush change detection** on all components for performance
+- **Service → Helper → Component** separation (see GitHub activity feature)
+- **BEM SCSS** with shared mixins and variables for consistency
+- **WCAG 2.1 AA** compliance: skip navigation, aria attributes, semantic HTML
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+## Getting Started
 
 ```bash
-ng build
+# Install dependencies
+npm install
+
+# Development server
+npm start
+# → http://localhost:4200
+
+# Production build
+npm run build
+
+# Run tests
+npm test
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Environment Configuration
 
-## Running unit tests
+Environment files are located in `src/environments/`:
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+- `environment.ts` — development config
+- `environment.prod.ts` — production config
 
-```bash
-ng test
-```
+Configuration includes GitHub username and API URL for the contribution graph.
 
-## Running end-to-end tests
+## Project Structure Decisions
 
-For end-to-end (e2e) testing, run:
+| Decision | Rationale |
+|----------|-----------|
+| No NgModules | Angular 21 standalone components — simpler, tree-shakeable |
+| Signal inputs over @Input | Modern reactive API, better type inference |
+| OnPush everywhere | Signals + OnPush = optimal change detection |
+| BEM + SCSS variables | Scalable CSS without runtime overhead |
+| Helper functions (pure) | Testable mapping logic, separated from framework |
+| Lazy routes | Demonstrates code splitting awareness |
 
-```bash
-ng e2e
-```
+## License
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Private project.

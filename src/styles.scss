@@ -1,10 +1,11 @@
 @use './styles/variables' as *;
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: $color-border-default $color-bg-secondary;
 }
 
 body {
@@ -13,6 +14,7 @@ body {
   color: $color-text-primary;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {

@@ -1,4 +1,4 @@
-import { Component, DestroyRef, OnInit, inject, signal } from '@angular/core';
+import { Component, ChangeDetectionStrategy, DestroyRef, OnInit, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NgClass } from '@angular/common';
 import { GithubService } from '../../shared/services/github.service';
@@ -8,17 +8,18 @@ import {
   WeekCell,
   mapContributionResponse
 } from './github-activity.helper';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-github-activity',
   imports: [NgClass],
   templateUrl: './github-activity.component.html',
-  styleUrl: './github-activity.component.scss'
+  styleUrl: './github-activity.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GithubActivity implements OnInit {
   private githubService = inject(GithubService);
   private destroyRef = inject(DestroyRef);
-  private username = 'krzszk96';
 
   weeks = signal<ContributionWeek[]>([]);
   totalContributions = signal(0);
@@ -29,7 +30,7 @@ export class GithubActivity implements OnInit {
   dayLabels = ['', 'Mon', '', 'Wed', '', 'Fri', ''];
 
   ngOnInit() {
-    this.githubService.getContributions(this.username)
+    this.githubService.getContributions(environment.githubUsername)
       .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe({
         next: (data) => {
