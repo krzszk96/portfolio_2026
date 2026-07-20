@@ -1,0 +1,47 @@
+@use '../../../../styles/variables' as *;
+@use '../../../../styles/mixins' as *;
+
+:host {
+  display: block;
+  margin-top: $spacing-base;
+}
+
+.web-link {
+  @include button-secondary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  text-decoration: none;
+
+  &--disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &__dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #39d353;
+    box-shadow: 0 0 4px #39d353, 0 0 8px rgba(57, 211, 83, 0.4);
+    animation: pulse-dot 2s ease-in-out infinite;
+
+    &--disabled {
+      background-color: #f85149;
+      box-shadow: none;
+      animation: none;
+    }
+  }
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 4px #39d353, 0 0 8px rgba(57, 211, 83, 0.4);
+  }
+  50% {
+    opacity: 0.6;
+    box-shadow: 0 0 2px #39d353, 0 0 4px rgba(57, 211, 83, 0.2);
+  }
+}
