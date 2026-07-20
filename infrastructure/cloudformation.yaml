@@ -1,5 +1,18 @@
 AWSTemplateFormatVersion: "2010-09-09"
-Description: S3 Static Website Hosting for Portfolio
+Description: S3 Static Website Hosting for Portfolio with CloudFront and Custom Domain
+
+Parameters:
+  DomainName:
+    Type: String
+    Default: krzszk.pl
+    Description: Custom domain name
+  CertificateArn:
+    Type: String
+    Description: ARN of the ACM certificate (must be in us-east-1)
+  BucketRegion:
+    Type: String
+    Default: eu-north-1
+    Description: Region where the S3 bucket is hosted
 
 Resources:
   # ─── S3 Bucket for Portfolio Static Website ────────────────────────────────
@@ -29,6 +42,46 @@ Resources:
             Action: s3:GetObject
             Resource: !Sub "${PortfolioBucket.Arn}/*"
 
+  # ─── CloudFront Distribution ───────────────────────────────────────────────
+  CloudFrontDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        Enabled: true
+        DefaultRootObject: index.html
+        Aliases:
+          - !Sub "www.${DomainName}"
+        Origins:
+          - Id: S3WebsiteOrigin
+            DomainName: !Sub "portfolio-2026-${AWS::AccountId}.s3-website.${BucketRegion}.amazonaws.com"
+            CustomOriginConfig:
+              OriginProtocolPolicy: http-only
+        DefaultCacheBehavior:
+          TargetOriginId: S3WebsiteOrigin
+          ViewerProtocolPolicy: redirect-to-https
+          AllowedMethods:
+            - GET
+            - HEAD
+          CachedMethods:
+            - GET
+            - HEAD
+          ForwardedValues:
+            QueryString: false
+            Cookies:
+              Forward: none
+          Compress: true
+        CustomErrorResponses:
+          - ErrorCode: 404
+            ResponseCode: 200
+            ResponsePagePath: /index.html
+          - ErrorCode: 403
+            ResponseCode: 200
+            ResponsePagePath: /index.html
+        ViewerCertificate:
+          AcmCertificateArn: !Ref CertificateArn
+          SslSupportMethod: sni-only
+          MinimumProtocolVersion: TLSv1.2_2021
+
 Outputs:
   WebsiteURL:
     Description: URL of the portfolio website
@@ -36,3 +89,9 @@ Outputs:
   BucketName:
     Description: Name of the S3 bucket
     Value: !Ref PortfolioBucket
+  CloudFrontURL:
+    Description: CloudFront distribution URL
+    Value: !GetAtt CloudFrontDistribution.DomainName
+  CloudFrontDistributionId:
+    Description: CloudFront distribution ID (for cache invalidation)
+    Value: !Ref CloudFrontDistribution
