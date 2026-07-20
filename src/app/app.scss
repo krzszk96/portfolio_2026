@@ -10,6 +10,24 @@
 .layout {
   min-height: 100vh;
 
+  &__skip-link {
+    position: absolute;
+    top: -100%;
+    left: $spacing-base;
+    padding: $spacing-sm $spacing-base;
+    background-color: $color-bg-secondary;
+    color: $color-text-primary;
+    border: 1px solid $color-border-default;
+    border-radius: $border-radius-sm;
+    font-size: $font-size-sm;
+    text-decoration: none;
+    z-index: 10000;
+
+    &:focus {
+      top: $spacing-sm;
+    }
+  }
+
   &__content {
     display: grid;
     grid-template-columns: $sidebar-width 1fr;
