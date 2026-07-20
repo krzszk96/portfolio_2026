@@ -1,0 +1,38 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: S3 Static Website Hosting for Portfolio
+
+Resources:
+  # ─── S3 Bucket for Portfolio Static Website ────────────────────────────────
+  PortfolioBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "portfolio-2026-${AWS::AccountId}"
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
+        BlockPublicPolicy: false
+        IgnorePublicAcls: false
+        RestrictPublicBuckets: false
+      WebsiteConfiguration:
+        IndexDocument: index.html
+        ErrorDocument: index.html
+
+  PortfolioBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref PortfolioBucket
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Sid: PublicReadGetObject
+            Effect: Allow
+            Principal: "*"
+            Action: s3:GetObject
+            Resource: !Sub "${PortfolioBucket.Arn}/*"
+
+Outputs:
+  WebsiteURL:
+    Description: URL of the portfolio website
+    Value: !GetAtt PortfolioBucket.WebsiteURL
+  BucketName:
+    Description: Name of the S3 bucket
+    Value: !Ref PortfolioBucket
