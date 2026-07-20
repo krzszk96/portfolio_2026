@@ -1,0 +1,148 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.activity {
+  @include section-container;
+
+  &__header {
+    @include flex-between;
+    margin-bottom: $spacing-base;
+  }
+
+  &__title {
+    font-size: $font-size-md;
+    font-weight: $font-weight-semibold;
+    color: $color-text-primary;
+  }
+
+  &__link {
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+    text-decoration: none;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $color-text-link;
+    }
+  }
+
+  &__summary {
+    margin-bottom: $spacing-base;
+  }
+
+  &__count {
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+  }
+
+  &__loading,
+  &__error {
+    font-size: $font-size-sm;
+    color: $color-text-secondary;
+    padding: $spacing-xl 0;
+    text-align: center;
+  }
+
+  &__graph-wrapper {
+    overflow-x: auto;
+    padding-bottom: $spacing-sm;
+  }
+
+  &__graph {
+    display: flex;
+    gap: $spacing-xs;
+    min-width: fit-content;
+  }
+
+  &__day-labels {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding-top: 22px;
+  }
+
+  &__day-label {
+    font-size: 10px;
+    color: $color-text-secondary;
+    height: 11px;
+    line-height: 11px;
+    width: 28px;
+  }
+
+  &__grid-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__month-labels {
+    display: grid;
+    grid-template-columns: repeat(53, 11px);
+    gap: 3px;
+    margin-bottom: 4px;
+    height: 14px;
+  }
+
+  &__month-label {
+    font-size: 10px;
+    color: $color-text-secondary;
+    line-height: 14px;
+    white-space: nowrap;
+  }
+
+  &__grid {
+    display: flex;
+    gap: 3px;
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  &__cell {
+    width: 11px;
+    height: 11px;
+    border-radius: 2px;
+    outline: 1px solid rgba(27, 31, 35, 0.06);
+
+    &--empty {
+      visibility: hidden;
+    }
+
+    &--level-0 {
+      background-color: $color-bg-tertiary;
+    }
+
+    &--level-1 {
+      background-color: #0e4429;
+    }
+
+    &--level-2 {
+      background-color: #006d32;
+    }
+
+    &--level-3 {
+      background-color: #26a641;
+    }
+
+    &--level-4 {
+      background-color: #39d353;
+    }
+  }
+
+  &__legend {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: $spacing-xs;
+    margin-top: $spacing-base;
+  }
+
+  &__legend-label {
+    font-size: 10px;
+    color: $color-text-secondary;
+  }
+}

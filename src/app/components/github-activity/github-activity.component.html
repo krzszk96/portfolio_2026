@@ -1,0 +1,64 @@
+<section class="activity">
+  <div class="activity__header">
+    <h2 class="activity__title">GitHub Activity</h2>
+    <a class="activity__link" href="https://github.com/krzszk96" target="_blank" rel="noopener noreferrer">
+      <i class="fa-brands fa-github"></i> krzszk96
+    </a>
+  </div>
+
+  @if (loading()) {
+    <div class="activity__loading">Loading contribution data...</div>
+  } @else if (error()) {
+    <div class="activity__error">Unable to load GitHub contributions.</div>
+  } @else {
+    <div class="activity__summary">
+      <span class="activity__count">{{ totalContributions() }} contributions in the last year</span>
+    </div>
+
+    <div class="activity__graph-wrapper">
+      <div class="activity__graph">
+        <div class="activity__day-labels">
+          @for (label of dayLabels; track label + $index) {
+            <span class="activity__day-label">{{ label }}</span>
+          }
+        </div>
+
+        <div class="activity__grid-container">
+          <div class="activity__month-labels">
+            @for (month of months(); track month.name + month.colStart) {
+              <span
+                class="activity__month-label"
+                [style.grid-column-start]="month.colStart + 1">
+                {{ month.name }}
+              </span>
+            }
+          </div>
+
+          <div class="activity__grid">
+            @for (week of weeks(); track $index) {
+              <div class="activity__column">
+                @for (cell of week.days; track $index) {
+                  <div
+                    class="activity__cell"
+                    [ngClass]="getCellClass(cell)"
+                    [title]="getTooltip(cell)">
+                  </div>
+                }
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="activity__legend">
+      <span class="activity__legend-label">Less</span>
+      <div class="activity__cell activity__cell--level-0"></div>
+      <div class="activity__cell activity__cell--level-1"></div>
+      <div class="activity__cell activity__cell--level-2"></div>
+      <div class="activity__cell activity__cell--level-3"></div>
+      <div class="activity__cell activity__cell--level-4"></div>
+      <span class="activity__legend-label">More</span>
+    </div>
+  }
+</section>
