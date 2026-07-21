@@ -97,6 +97,7 @@
   &__card-meta {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: $spacing-base;
     font-size: $font-size-xs;
     color: $color-text-secondary;
