@@ -60,5 +60,69 @@
     height: 8px;
     border-radius: 50%;
     display: inline-block;
+
+    &--angular {
+      background-color: #dd0031;
+    }
+
+    &--rxjs {
+      background-color: #b7178c;
+    }
+
+    &--ngrx {
+      background-color: #764abc;
+    }
+
+    &--typescript {
+      background-color: #3178c6;
+    }
+
+    &--javascript {
+      background-color: #f1e05a;
+    }
+
+    &--postgres {
+      background-color: #336791;
+    }
+
+    &--python {
+      background-color: #4f5d95;
+    }
+
+    &--node {
+      background-color: #68a063;
+    }
+
+    &--jwt {
+      background-color: #000000;
+    }
+
+    &--api {
+      background-color: #58a6ff;
+    }
+
+    &--aws {
+      background-color: #ff9900;
+    }
+
+    &--git {
+      background-color: #f05032;
+    }
+
+    &--aem {
+      background-color: #fa0f00;
+    }
+
+    &--magento {
+      background-color: #f46f25;
+    }
+
+    &--jest {
+      background-color: #99425b;
+    }
+
+    &--figma {
+      background-color: #f24e1e;
+    }
   }
 }

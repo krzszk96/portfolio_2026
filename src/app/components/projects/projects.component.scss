@@ -113,6 +113,22 @@
     height: 12px;
     border-radius: 50%;
     display: inline-block;
+
+    &--typescript {
+      background-color: #3178c6;
+    }
+
+    &--angular {
+      background-color: #dd0031;
+    }
+
+    &--aws {
+      background-color: #ff9900;
+    }
+
+    &--stripe {
+      background-color: #635bff;
+    }
   }
 
   &__stat {
