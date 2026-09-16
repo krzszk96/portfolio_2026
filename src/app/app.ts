@@ -5,11 +5,12 @@ import { map, filter } from 'rxjs';
 import { NavigationEnd } from '@angular/router';
 import { Navbar } from './components/navbar/navbar.component';
 import { Sidebar } from './components/sidebar/sidebar.component';
+import { BackgroundMesh } from './components/background-mesh/background-mesh.component';
 import { ScrollService } from './shared/services/scroll.service';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Navbar, Sidebar],
+  imports: [RouterOutlet, Navbar, Sidebar, BackgroundMesh],
   templateUrl: './app.html',
   styleUrl: './app.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
