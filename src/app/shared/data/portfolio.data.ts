@@ -9,8 +9,124 @@ export const PORTFOLIO_DATA: Portfolio = {
     name: 'Krzysztof Szkudlarek',
     bio:
       'Front-end Developer with 4+ years of experience building scalable web applications using ' +
-      'Angular, TypeScript, and AWS. Strong focus on performance, modular architecture, and user experience.'
+      'Angular, TypeScript, and AWS. Strong focus on performance, modular architecture, and user experience.',
+    intro:
+      "I care about clean architecture, reliable state, and accessible interfaces that stay easy to " +
+      "maintain as they grow. Here's where I focus:",
+    highlights: [
+      'Angular architecture for booking flows & data-heavy dashboards at LOT Polish Airlines',
+      'AWS serverless: Lambda, DynamoDB, Cognito, CloudFront & CloudFormation',
+      'Nx monorepos, AEM integration, and full WCAG accessibility compliance'
+    ]
   },
+  contact: {
+    name: 'Krzysztof Szkudlarek',
+    bio:
+      'Front-end Developer with 4+ years of experience building scalable web applications using ' +
+      'Angular, TypeScript, and AWS. Strong focus on performance, modular architecture, and user experience.',
+    meta: [
+      { type: 'education', label: 'B.Sc. Computer Science', href: null },
+      { type: 'location', label: 'Warsaw, Poland', href: null },
+      { type: 'email', label: 'krzszk96@gmail.com', href: 'mailto:krzszk96@gmail.com' }
+    ],
+    socials: [
+      {
+        platform: 'github',
+        label: 'GitHub',
+        href: 'https://github.com/krzszk96',
+        ariaLabel: 'GitHub profile — opens in new tab'
+      },
+      {
+        platform: 'linkedin',
+        label: 'LinkedIn',
+        href: 'https://www.linkedin.com/in/krzysiek-szkudlarek/',
+        ariaLabel: 'LinkedIn profile — opens in new tab'
+      }
+    ]
+  },
+  skills: [
+    {
+      title: 'Frontend Development',
+      skills: [
+        { label: 'Angular 20', dot: 'angular' },
+        { label: 'Angular Material', dot: 'angular' },
+        { label: 'PrimeNG', dot: 'angular' },
+        { label: 'RxJS', dot: 'rxjs' },
+        { label: 'NgRx', dot: 'ngrx' },
+        { label: 'TypeScript', dot: 'typescript' },
+        { label: 'JavaScript', dot: 'javascript' },
+        { label: 'Jest', dot: 'jest' }
+      ]
+    },
+    {
+      title: 'Backend & APIs',
+      skills: [
+        { label: 'PostgREST', dot: 'postgres' },
+        { label: 'Python', dot: 'python' },
+        { label: 'Node.js (Express)', dot: 'node' },
+        { label: 'JWT', dot: 'jwt' },
+        { label: 'RESTful APIs', dot: 'api' },
+        { label: 'Webhooks', dot: 'api' },
+        { label: 'Serverless', dot: 'api' }
+      ]
+    },
+    {
+      title: 'Cloud & DevOps',
+      skills: [
+        { label: 'AWS Lambda', dot: 'aws' },
+        { label: 'DynamoDB', dot: 'aws' },
+        { label: 'Cognito', dot: 'aws' },
+        { label: 'CloudFront', dot: 'aws' },
+        { label: 'CloudFormation', dot: 'aws' },
+        { label: 'Amplify', dot: 'aws' },
+        { label: 'S3', dot: 'aws' },
+        { label: 'API Gateway', dot: 'aws' },
+        { label: 'Git', dot: 'git' }
+      ]
+    },
+    {
+      title: 'CMS & E-commerce',
+      skills: [
+        { label: 'Adobe Experience Manager', dot: 'aem' },
+        { label: 'Magento (Adobe Commerce)', dot: 'magento' }
+      ]
+    },
+    {
+      title: 'Standards & Tools',
+      skills: [
+        { label: 'BEM', dot: 'api' },
+        { label: 'WCAG', dot: 'api' },
+        { label: 'Kiro', dot: 'kiro' },
+        { label: 'Figma', dot: 'figma' }
+      ]
+    }
+  ],
+  certificates: [
+    {
+      title: 'WCAG 2.1 (AA) Application on Websites',
+      issuer: 'Widzialni.eu',
+      date: 'Issued Sep 2024',
+      status: { label: 'Completed', variant: 'done' }
+    },
+    {
+      title: 'AWS Cloud Practitioner',
+      issuer: 'Amazon Web Services',
+      date: 'Expected Oct 2026',
+      status: { label: 'In Progress', variant: 'progress' }
+    }
+  ],
+  education: [
+    {
+      title: 'B.Sc. in Computer Science',
+      subtitle: 'Akademia Ekonomiczno Humanistyczna w Warszawie',
+      detail: 'Oct 2016 – Sep 2020 · Specialization: Mobile Applications'
+    },
+    {
+      title: 'English – Professional Working Proficiency',
+      subtitle: 'Language Skills',
+      detail: 'Used daily in professional environment'
+    }
+  ],
   experience: [
     {
       id: 'lot-developer',

@@ -39,6 +39,55 @@ export interface ExperienceItem {
 export interface About {
   name: string;
   bio: string;
+  intro: string;
+  highlights: string[];
+}
+
+export type ContactMetaType = 'education' | 'location' | 'email';
+
+export interface ContactMeta {
+  type: ContactMetaType;
+  label: string;
+  href: string | null;
+}
+
+export type SocialPlatform = 'github' | 'linkedin';
+
+export interface SocialLink {
+  platform: SocialPlatform;
+  label: string;
+  href: string;
+  ariaLabel: string;
+}
+
+export interface Contact {
+  name: string;
+  bio: string;
+  meta: ContactMeta[];
+  socials: SocialLink[];
+}
+
+export interface SkillTag {
+  label: string;
+  dot: string;
+}
+
+export interface SkillCategory {
+  title: string;
+  skills: SkillTag[];
+}
+
+export interface Certificate {
+  title: string;
+  issuer: string;
+  date: string;
+  status: { label: string; variant: StatusVariant };
+}
+
+export interface EducationItem {
+  title: string;
+  subtitle: string;
+  detail: string;
 }
 
 export interface PortfolioProjects {
@@ -48,6 +97,10 @@ export interface PortfolioProjects {
 
 export interface Portfolio {
   about: About;
+  contact: Contact;
+  skills: SkillCategory[];
+  certificates: Certificate[];
+  education: EducationItem[];
   experience: ExperienceItem[];
   projects: PortfolioProjects;
 }

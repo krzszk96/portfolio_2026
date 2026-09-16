@@ -3,61 +3,17 @@
     <h2 class="skills__title">Skills</h2>
   </div>
   <div class="skills__container">
-    <div class="skills__category">
-      <h4 class="skills__category-title">Frontend Development</h4>
-      <div class="skills__tags">
-        <span class="skills__tag"><span class="skills__dot skills__dot--angular"></span>Angular 20</span>
-        <span class="skills__tag"><span class="skills__dot skills__dot--angular"></span>Angular Material</span>
-        <span class="skills__tag"><span class="skills__dot skills__dot--angular"></span>PrimeNG</span>
-        <span class="skills__tag"><span class="skills__dot skills__dot--rxjs"></span>RxJS</span>
-        <span class="skills__tag"><span class="skills__dot skills__dot--ngrx"></span>NgRx</span>
-        <span class="skills__tag"><span class="skills__dot skills__dot--typescript"></span>TypeScript</span>
-        <span class="skills__tag"><span class="skills__dot skills__dot--javascript"></span>JavaScript</span>
-        <span class="skills__tag"><span class="skills__dot skills__dot--jest"></span>Jest</span>
+    @for (category of categories(); track category.title) {
+      <div class="skills__category">
+        <h4 class="skills__category-title">{{ category.title }}</h4>
+        <div class="skills__tags">
+          @for (skill of category.skills; track skill.label) {
+            <span class="skills__tag">
+              <span class="skills__dot" [class]="'skills__dot--' + skill.dot"></span>{{ skill.label }}
+            </span>
+          }
+        </div>
       </div>
-    </div>
-    <div class="skills__category">
-      <h4 class="skills__category-title">Backend & APIs</h4>
-      <div class="skills__tags">
-        <span class="skills__tag"><span class="skills__dot skills__dot--postgres"></span>PostgREST</span>
-        <span class="skills__tag"><span class="skills__dot skills__dot--python"></span>Python</span>
-        <span class="skills__tag"><span class="skills__dot skills__dot--node"></span>Node.js (Express)</span>
-        <span class="skills__tag"><span class="skills__dot skills__dot--jwt"></span>JWT</span>
-        <span class="skills__tag"><span class="skills__dot skills__dot--api"></span>RESTful APIs</span>
-        <span class="skills__tag"><span class="skills__dot skills__dot--api"></span>Webhooks</span>
-        <span class="skills__tag"><span class="skills__dot skills__dot--api"></span>Serverless</span>
-      </div>
-    </div>
-    <div class="skills__category">
-      <h4 class="skills__category-title">Cloud & DevOps</h4>
-      <div class="skills__tags">
-        <span class="skills__tag"><span class="skills__dot skills__dot--aws"></span>AWS Lambda</span>
-        <span class="skills__tag"><span class="skills__dot skills__dot--aws"></span>DynamoDB</span>
-        <span class="skills__tag"><span class="skills__dot skills__dot--aws"></span>Cognito</span>
-        <span class="skills__tag"><span class="skills__dot skills__dot--aws"></span>CloudFront</span>
-        <span class="skills__tag"><span class="skills__dot skills__dot--aws"></span>CloudFormation</span>
-        <span class="skills__tag"><span class="skills__dot skills__dot--aws"></span>Amplify</span>
-        <span class="skills__tag"><span class="skills__dot skills__dot--aws"></span>S3</span>
-        <span class="skills__tag"><span class="skills__dot skills__dot--aws"></span>API Gateway</span>
-        <span class="skills__tag"><span class="skills__dot skills__dot--git"></span>Git</span>
-      </div>
-    </div>
-    <div class="skills__category">
-      <h4 class="skills__category-title">CMS & E-commerce</h4>
-      <div class="skills__tags">
-        <span class="skills__tag"><span class="skills__dot skills__dot--aem"></span>Adobe Experience Manager</span>
-        <span class="skills__tag"><span class="skills__dot skills__dot--magento"></span>Magento (Adobe Commerce)</span>
-      </div>
-    </div>
-    <div class="skills__category">
-      <h4 class="skills__category-title">Standards & Tools</h4>
-      <div class="skills__tags">
-        <span class="skills__tag"><span class="skills__dot skills__dot--api"></span>BEM</span>
-        <span class="skills__tag"><span class="skills__dot skills__dot--api"></span>WCAG</span>
-        
-        <span class="skills__tag"><span class="skills__dot skills__dot--kiro"></span>Kiro</span>
-        <span class="skills__tag"><span class="skills__dot skills__dot--figma"></span>Figma</span>
-      </div>
-    </div>
+    }
   </div>
 </section>

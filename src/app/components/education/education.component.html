@@ -4,25 +4,17 @@
     <app-status-badge label="Achievements" variant="default" />
   </div>
   <div class="education__grid">
-    <div class="education__card">
-      <div class="education__icon">
-        <img src="/assets/icons/verified.svg" alt="Verified" />
+    @for (item of items(); track item.title) {
+      <div class="education__card">
+        <div class="education__icon">
+          <img src="/assets/icons/verified.svg" alt="Verified" />
+        </div>
+        <div class="education__info">
+          <h4>{{ item.title }}</h4>
+          <p>{{ item.subtitle }}</p>
+          <span class="education__date">{{ item.detail }}</span>
+        </div>
       </div>
-      <div class="education__info">
-        <h4>B.Sc. in Computer Science</h4>
-        <p>Akademia Ekonomiczno Humanistyczna w Warszawie</p>
-        <span class="education__date">Oct 2016 – Sep 2020 · Specialization: Mobile Applications</span>
-      </div>
-    </div>
-    <div class="education__card">
-      <div class="education__icon">
-        <img src="/assets/icons/verified.svg" alt="Verified" />
-      </div>
-      <div class="education__info">
-        <h4>English – Professional Working Proficiency</h4>
-        <p>Language Skills</p>
-        <span class="education__date">Used daily in professional environment</span>
-      </div>
-    </div>
+    }
   </div>
 </section>

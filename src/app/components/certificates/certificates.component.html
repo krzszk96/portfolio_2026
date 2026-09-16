@@ -1,30 +1,21 @@
 <section class="certificates">
   <div class="certificates__header">
     <h2 class="certificates__title">Certificates</h2>
-    <app-status-badge label="2" variant="default" />
+    <app-status-badge [label]="certificates().length.toString()" variant="default" />
   </div>
   <div class="certificates__grid">
-    <div class="certificates__card">
-      <div class="certificates__icon">
-        <img src="/assets/icons/shield.svg" alt="Certificate" />
+    @for (cert of certificates(); track cert.title) {
+      <div class="certificates__card">
+        <div class="certificates__icon">
+          <img src="/assets/icons/shield.svg" alt="Certificate" />
+        </div>
+        <div class="certificates__info">
+          <h4>{{ cert.title }}</h4>
+          <p>{{ cert.issuer }}</p>
+          <span class="certificates__date">{{ cert.date }}</span>
+        </div>
+        <app-status-badge [label]="cert.status.label" [variant]="cert.status.variant" />
       </div>
-      <div class="certificates__info">
-        <h4>WCAG 2.1 (AA) Application on Websites</h4>
-        <p>Widzialni.eu</p>
-        <span class="certificates__date">Issued Sep 2024</span>
-      </div>
-      <app-status-badge label="Completed" variant="done" />
-    </div>
-    <div class="certificates__card">
-      <div class="certificates__icon">
-        <img src="/assets/icons/shield.svg" alt="Certificate" />
-      </div>
-      <div class="certificates__info">
-        <h4>AWS Cloud Practitioner</h4>
-        <p>Amazon Web Services</p>
-        <span class="certificates__date">Expected Oct 2026</span>
-      </div>
-      <app-status-badge label="In Progress" variant="progress" />
-    </div>
+    }
   </div>
 </section>
