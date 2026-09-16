@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: "2010-09-09"
-Description: S3 Static Website Hosting for Portfolio with CloudFront and Custom Domain
+Description: S3 Static Website Hosting for Portfolio with CloudFront (OAC) and Custom Domain
 
 Parameters:
   DomainName:
@@ -12,23 +12,25 @@ Parameters:
   BucketRegion:
     Type: String
     Default: eu-north-1
-    Description: Region where the S3 bucket is hosted
+    Description: Region where this stack and the S3 bucket are deployed (deploy with --region matching this value)
 
 Resources:
-  # ─── S3 Bucket for Portfolio Static Website ────────────────────────────────
+  # ─── S3 Bucket for Portfolio Static Website (private) ──────────────────────
   PortfolioBucket:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: !Sub "portfolio-2026-${AWS::AccountId}"
       PublicAccessBlockConfiguration:
-        BlockPublicAcls: false
-        BlockPublicPolicy: false
-        IgnorePublicAcls: false
-        RestrictPublicBuckets: false
-      WebsiteConfiguration:
-        IndexDocument: index.html
-        ErrorDocument: index.html
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
 
+  # ─── Bucket policy: allow only this CloudFront distribution (OAC) ──────────
   PortfolioBucketPolicy:
     Type: AWS::S3::BucketPolicy
     Properties:
@@ -36,11 +38,26 @@ Resources:
       PolicyDocument:
         Version: "2012-10-17"
         Statement:
-          - Sid: PublicReadGetObject
+          - Sid: AllowCloudFrontServicePrincipalReadOnly
             Effect: Allow
-            Principal: "*"
+            Principal:
+              Service: cloudfront.amazonaws.com
             Action: s3:GetObject
             Resource: !Sub "${PortfolioBucket.Arn}/*"
+            Condition:
+              StringEquals:
+                AWS:SourceArn: !Sub "arn:aws:cloudfront::${AWS::AccountId}:distribution/${CloudFrontDistribution}"
+
+  # ─── Origin Access Control ─────────────────────────────────────────────────
+  CloudFrontOriginAccessControl:
+    Type: AWS::CloudFront::OriginAccessControl
+    Properties:
+      OriginAccessControlConfig:
+        Name: !Sub "portfolio-2026-oac-${AWS::AccountId}"
+        Description: OAC for the portfolio S3 origin
+        OriginAccessControlOriginType: s3
+        SigningBehavior: always
+        SigningProtocol: sigv4
 
   # ─── CloudFront Distribution ───────────────────────────────────────────────
   CloudFrontDistribution:
@@ -52,12 +69,13 @@ Resources:
         Aliases:
           - !Sub "www.${DomainName}"
         Origins:
-          - Id: S3WebsiteOrigin
-            DomainName: !Sub "portfolio-2026-${AWS::AccountId}.s3-website.${BucketRegion}.amazonaws.com"
-            CustomOriginConfig:
-              OriginProtocolPolicy: http-only
+          - Id: S3Origin
+            DomainName: !GetAtt PortfolioBucket.RegionalDomainName
+            OriginAccessControlId: !Ref CloudFrontOriginAccessControl
+            S3OriginConfig:
+              OriginAccessIdentity: ""
         DefaultCacheBehavior:
-          TargetOriginId: S3WebsiteOrigin
+          TargetOriginId: S3Origin
           ViewerProtocolPolicy: redirect-to-https
           AllowedMethods:
             - GET
@@ -65,11 +83,9 @@ Resources:
           CachedMethods:
             - GET
             - HEAD
-          ForwardedValues:
-            QueryString: false
-            Cookies:
-              Forward: none
           Compress: true
+          # Managed CachePolicy: CachingOptimized
+          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6
         CustomErrorResponses:
           - ErrorCode: 404
             ResponseCode: 200
@@ -83,9 +99,6 @@ Resources:
           MinimumProtocolVersion: TLSv1.2_2021
 
 Outputs:
-  WebsiteURL:
-    Description: URL of the portfolio website
-    Value: !GetAtt PortfolioBucket.WebsiteURL
   BucketName:
     Description: Name of the S3 bucket
     Value: !Ref PortfolioBucket
