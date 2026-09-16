@@ -7,23 +7,26 @@
   </div>
 
   @if (loading()) {
-    <div class="activity__loading">Loading contribution data...</div>
+    <div class="activity__loading" role="status">Loading contribution data...</div>
   } @else if (error()) {
-    <div class="activity__error">Unable to load GitHub contributions.</div>
+    <div class="activity__error" role="alert">Unable to load GitHub contributions.</div>
   } @else {
-    <div class="activity__summary">
+    <div class="activity__summary" aria-hidden="true">
       <span class="activity__count">{{ totalContributions() }} contributions in the last year</span>
     </div>
 
     <div class="activity__graph-wrapper">
-      <div class="activity__graph">
-        <div class="activity__day-labels">
+      <div
+        class="activity__graph"
+        role="img"
+        [attr.aria-label]="totalContributions() + ' contributions in the last year, shown as a daily activity heatmap.'">
+        <div class="activity__day-labels" aria-hidden="true">
           @for (label of dayLabels; track label + $index) {
             <span class="activity__day-label">{{ label }}</span>
           }
         </div>
 
-        <div class="activity__grid-container">
+        <div class="activity__grid-container" aria-hidden="true">
           <div class="activity__month-labels">
             @for (month of months(); track month.name + month.colStart) {
               <span
@@ -51,7 +54,7 @@
       </div>
     </div>
 
-    <div class="activity__legend">
+    <div class="activity__legend" aria-hidden="true">
       <span class="activity__legend-label">Less</span>
       <div class="activity__cell activity__cell--level-0"></div>
       <div class="activity__cell activity__cell--level-1"></div>
