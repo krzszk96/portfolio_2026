@@ -3,72 +3,10 @@
   <p>Detailed overview of my professional journey and key contributions. I work with the latest technologies, to build modern, scalable web applications.</p>
 </div>
 
-<div class="exp-page__job" id="lot-developer">
-  <div class="exp-page__job-header">
-    <div>
-      <h2 class="exp-page__job-title">Front-end Developer</h2>
-      <p class="exp-page__job-company">Polskie Linie Lotnicze „LOT" S.A.</p>
-    </div>
-    <app-status-badge label="Jul 2022 - Present · Full-time" variant="default" />
-  </div>
-
-  <p class="exp-page__job-project">Project: Next-Gen Internet Booking Engine (IBE) &amp; LOT Shop&More (E-commerce)</p>
-
-  <ul class="exp-page__job-list">
-    <li>Building the next-generation Internet Booking Engine (IBE) for lot.com with Angular 20 — complex multi-step booking flows, reactive state management, and i18n support optimized for large result sets.</li>
-    <li>Technical owner of the A/B testing process, defining experiment setup, instrumentation, and rollout to validate UX and conversion improvements.</li>
-    <li>One of only a few engineers trusted to prepare release packages for both AEM and the Frontend, bundling changes across the content and application layers for the deployment team.</li>
-    <li>Implemented a Nx/Monorepo strategy to unify digital services, increasing code reuse across teams.</li>
-    <li>Integrated Adobe Experience Manager (AEM) and Adobe Commerce (Magento) to deliver dynamic, personalized user experiences at scale.</li>
-    <li>Optimized Core Web Vitals and ensured WCAG compliance for global accessibility across all device types.</li>
-    <li>Work with the latest Angular reactivity — Signals for fine-grained state alongside RxJS and NgRx for complex reactive data flows.</li>
-  </ul>
-
-  <div class="exp-page__job-tech">
-    <span class="exp-page__tech-tag">Angular 20</span>
-    <span class="exp-page__tech-tag">Signals</span>
-    <span class="exp-page__tech-tag">RxJS</span>
-    <span class="exp-page__tech-tag">NgRx</span>
-    <span class="exp-page__tech-tag">TypeScript</span>
-    <span class="exp-page__tech-tag">AEM</span>
-    <span class="exp-page__tech-tag">Adobe Commerce</span>
-    <span class="exp-page__tech-tag">A/B Testing</span>
-    <span class="exp-page__tech-tag">i18n</span>
-    <span class="exp-page__tech-tag">REST APIs</span>
-    <span class="exp-page__tech-tag">Monorepo (Nx)</span>
-    <span class="exp-page__tech-tag">WCAG</span>
-  </div>
-</div>
-
-<div class="exp-page__job" id="lincoms-engineer">
-  <div class="exp-page__job-header">
-    <div>
-      <h2 class="exp-page__job-title">Front-end Engineer</h2>
-      <p class="exp-page__job-company">Lincoms SP. Z O.O.</p>
-    </div>
-    <app-status-badge label="Nov 2023 - Present · Part-time" variant="default" />
-  </div>
-
-  <p class="exp-page__job-project">Project: Serverless E-commerce Order Management System (OMS)</p>
-
-  <ul class="exp-page__job-list">
-    <li>Led the development of a cloud-native serverless Order Management System dashboard using Angular 20 and PrimeNG.</li>
-    <li>Built the UI to consume real-time data from AWS Lambda and DynamoDB, managing complex state for logistics tracking.</li>
-    <li>Defined RESTful API contracts and Webhook structures to ensure efficient data flow between the UI and back-end services.</li>
-    <li>Implemented secure identity management and RBAC using AWS Cognito.</li>
-    <li>Worked with CloudFormation and Amplify for infrastructure-as-code deployments.</li>
-    <li>Kept the project on the latest Angular versions and libraries, running framework migrations and dependency upgrades to stay current and secure.</li>
-  </ul>
-
-  <div class="exp-page__job-tech">
-    <span class="exp-page__tech-tag">Angular 20</span>
-    <span class="exp-page__tech-tag">PrimeNG</span>
-    <span class="exp-page__tech-tag">TypeScript</span>
-    <span class="exp-page__tech-tag">Python</span>
-    <span class="exp-page__tech-tag">AWS Lambda</span>
-    <span class="exp-page__tech-tag">DynamoDB</span>
-    <span class="exp-page__tech-tag">Cognito</span>
-    <span class="exp-page__tech-tag">Amplify</span>
-    <span class="exp-page__tech-tag">REST APIs</span>
-  </div>
-</div>
+@if (loading()) {
+  <app-spinner label="Loading experience…" />
+} @else {
+  @for (job of experience(); track job.id) {
+    <app-experience-card [item]="job" />
+  }
+}

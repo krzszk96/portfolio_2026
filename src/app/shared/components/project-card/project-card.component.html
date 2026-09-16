@@ -1,0 +1,23 @@
+@let p = project();
+
+<div class="proj-page__project" [class.proj-page__project--personal]="personal()" [id]="p.id">
+  <div class="proj-page__project-header">
+    <div>
+      <h2 class="proj-page__project-title">{{ p.title }}</h2>
+      <p class="proj-page__project-subtitle">{{ p.subtitle }}</p>
+    </div>
+    <app-status-badge [label]="p.status.label" [variant]="p.status.variant" />
+  </div>
+  <p class="proj-page__project-description">{{ p.description }}</p>
+  <ul class="proj-page__project-features">
+    @for (feature of p.features; track feature) {
+      <li>{{ feature }}</li>
+    }
+  </ul>
+  <app-web-link [href]="p.webLink ?? ''" [disabled]="!p.webLink" />
+  <div class="proj-page__project-tech">
+    @for (tag of p.tech; track tag) {
+      <span class="proj-page__tech-tag">{{ tag }}</span>
+    }
+  </div>
+</div>

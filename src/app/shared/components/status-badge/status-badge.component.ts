@@ -1,5 +1,7 @@
 import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 
+export type StatusVariant = 'done' | 'progress' | 'default';
+
 @Component({
   selector: 'app-status-badge',
   templateUrl: './status-badge.component.html',
@@ -8,5 +10,5 @@ import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 })
 export class StatusBadge {
   label = input.required<string>();
-  variant = input<'done' | 'progress' | 'default'>('default');
+  variant = input<StatusVariant>('default');
 }

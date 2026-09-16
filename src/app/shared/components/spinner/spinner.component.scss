@@ -1,0 +1,32 @@
+@use '../../../../styles/variables' as *;
+
+.spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-md;
+  padding: $spacing-2xl;
+  color: $color-text-secondary;
+  font-size: $font-size-base;
+
+  &__circle {
+    width: 20px;
+    height: 20px;
+    border: 2px solid $color-border-default;
+    border-top-color: $color-accent-blue;
+    border-radius: 50%;
+    animation: spinner-rotate 0.8s linear infinite;
+  }
+}
+
+@keyframes spinner-rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner__circle {
+    animation-duration: 2s;
+  }
+}

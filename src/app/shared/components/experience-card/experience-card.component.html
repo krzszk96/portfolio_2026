@@ -1,0 +1,25 @@
+@let job = item();
+
+<div class="exp-page__job" [id]="job.id">
+  <div class="exp-page__job-header">
+    <div>
+      <h2 class="exp-page__job-title">{{ job.role }}</h2>
+      <p class="exp-page__job-company">{{ job.company }}</p>
+    </div>
+    <app-status-badge [label]="job.period" [variant]="job.badgeVariant" />
+  </div>
+
+  <p class="exp-page__job-project">{{ job.project }}</p>
+
+  <ul class="exp-page__job-list">
+    @for (point of job.responsibilities; track point) {
+      <li>{{ point }}</li>
+    }
+  </ul>
+
+  <div class="exp-page__job-tech">
+    @for (tag of job.tech; track tag) {
+      <span class="exp-page__tech-tag">{{ tag }}</span>
+    }
+  </div>
+</div>
